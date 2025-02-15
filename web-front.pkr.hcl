@@ -42,10 +42,10 @@ build {
       "sudo mkdir -p /var/www/html",
       "sudo mkdir -p /etc/nginx/sites-available",
       "sudo mkdir -p /etc/nginx/sites-enabled",
-      "sudo mkdir -p /tmp/web",
+      "sudo mkdir -p /web/html",
       "sudo chown -R ubuntu:ubuntu /var/www/html",
       "sudo chown -R ubuntu:ubuntu /etc/nginx",
-      "sudo chown -R ubuntu:ubuntu /tmp/web"
+      "sudo chown -R ubuntu:ubuntu /web/html"
     ]
   }
 
@@ -53,13 +53,13 @@ build {
   provisioner "file" {
     # COMPLETE ME add the HTML file to your image
     source = "files/index.html"
-    destination = "/tmp/web/index.html"
+    destination = "/web/html/index.html"
   }
 
   provisioner "file" {
     # COMPLETE ME add the nginx.conf file to your image
     source = "files/nginx.conf"
-    destination = "/tmp/web/nginx.conf"
+    destination = "/etc/nginx/sites-available/nginx.conf"
   }
 
   provisioner "file" {
